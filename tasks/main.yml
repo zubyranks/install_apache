@@ -1,0 +1,15 @@
+# tasks file for apache2
+---
+ - name: Install Apache Package
+   package: 
+      name: "{{packagename}}"
+      state: latest
+ - name: Copy index file
+   copy:
+      src: index.html
+      dest: /var/www/html  
+   notify: Restart the Apache Service    
+ - name: Start Apache Service
+   service: 
+      name: "{{packagename}}"
+      state: started
