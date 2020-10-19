@@ -1,0 +1,6 @@
+---
+ - name: Apache Installation
+   hosts: dev
+   become: true
+   roles:
+   - install_apache
